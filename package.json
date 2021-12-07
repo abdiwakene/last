@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "map company names with stock market ticker",
     "main": "stockTickerMapping.js",
-    "repository": "https://github.com/abdiwakene/cs20",
+    "repository": "https://github.com/abdiwakene/last",
     "keywords": ["node", "express", "heroku"],
     "scripts": {
       "start": "node app.js",
