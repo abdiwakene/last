@@ -1,5 +1,5 @@
 {
-    "name": "cs20",
+    "name": "stocktickermapping",
     "version": "1.0.0",
     "description": "map company names with stock market ticker",
     "main": "app.js",
