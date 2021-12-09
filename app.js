@@ -16,10 +16,6 @@ mongodb.MongoClient.connect(uri, (err, db) => {
   const dbo = db.db("companies");
   const collection = dbo.collection("companies");
 
-  app.get('/test/', function(req, res){
-    res.send("Hello from the 'test' URL");
-});
-
   // Responds to GET requests with the route parameter being the form.
   app.get('/company', (req, res) => {
     var qobj = urls.parse(req.url, true).query
@@ -52,7 +48,6 @@ mongodb.MongoClient.connect(uri, (err, db) => {
 
   // listen for requests
   var listener = app.listen(port, () => {
-    console.log("This app is listening on port ${ PORT }");
-    // console.log("This app is listening on port" + listener.address().port);
+    console.log("This app is listening on port" + listener.address().port);
   });
 });
