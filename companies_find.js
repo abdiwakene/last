@@ -1,5 +1,5 @@
 const mongodb = require("mongodb"); // load mongodb
-const uri = "mongodb+srv://atlasAdmin:cs20password@cluster0.nhrgx.mongodb.net/companies?retryWrites=true&w=majority"; // put your URI HERE
+const uri = "mongodb+srv://abdi:cs20password@cluster0.nhrgx.mongodb.net/companies?retryWrites=true&w=majority"; // put your URI HERE
 
 var fs = require('fs');
 var qs = require('querystring');
