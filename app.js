@@ -52,6 +52,7 @@ mongodb.MongoClient.connect(uri, (err, db) => {
 
   // listen for requests
   var listener = app.listen(port, () => {
-    console.log("This app is listening on port " + listener.address().port);
+    console.log("This app is listening on port ${ PORT }");
+    // console.log("This app is listening on port" + listener.address().port);
   });
 });
