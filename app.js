@@ -3,15 +3,12 @@ const express = require("express"); // the library we will use to handle request
 const mongodb = require("mongodb"); // load mongodb
 const urls = require("url");
 
-const port = process.env.port || 8080; // port to listen on
+const port = process.env.port || 3000; // port to listen on
 
 const app = express(); // instantiate express
-//app.use(require("cors")()); // allow Cross-domain requests
-//app.use(require("body-parser").json()); // automatically parses request data to JSON
-//app.use(express.urlencoded());
 
 
-const uri = "mongodb+srv://atlasAdmin:cs20password@cluster0.nhrgx.mongodb.net/companies?retryWrites=true&w=majority"; // put your URI HERE
+const uri = "mongodb+srv://abdi:cs20password@cluster0.nhrgx.mongodb.net/companies?retryWrites=true&w=majority"; // put your URI HERE
 
 
 mongodb.MongoClient.connect(uri, (err, db) => {
@@ -19,13 +16,17 @@ mongodb.MongoClient.connect(uri, (err, db) => {
   const dbo = db.db("companies");
   const collection = dbo.collection("companies");
 
+  app.get('/test/', function(req, res){
+    res.send("Hello from the 'test' URL");
+});
+
   // Responds to GET requests with the route parameter being the form.
-  app.get("/:company", (req, res) => {
+  app.get('/company', (req, res) => {
     var qobj = urls.parse(req.url, true).query
     var querys;
     if (qobj.name != '') {
         //name query 
-        querys = {'name' : qobj.name};
+        querys = {'company' : qobj.name};
     } else if (qobj.ticker != '') {
         //ticker query
         querys = {'ticker': qobj.ticker};
@@ -39,7 +40,7 @@ mongodb.MongoClient.connect(uri, (err, db) => {
         // if all works
         var results = "";
         await docs.forEach(function(item){
-            results += item.name + " : " + item.ticker + "\n"; // send back all users found with the matching username
+            results += item.company + " : " + item.ticker + "\n"; // send back all users found with the matching username
         });
         if (docs.length === 0) {
           results = "No Match Found!";
